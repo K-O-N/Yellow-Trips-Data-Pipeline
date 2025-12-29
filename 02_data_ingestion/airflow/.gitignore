@@ -1,0 +1,5 @@
+.logs
+airflow/logs/
+.json
+02_data_ingestion/airflow/logs/
+/credentials/google_credentials.json

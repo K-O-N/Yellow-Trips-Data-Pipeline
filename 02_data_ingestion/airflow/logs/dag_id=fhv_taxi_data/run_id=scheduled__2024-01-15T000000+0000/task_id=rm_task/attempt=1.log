@@ -1,0 +1,17 @@
+[2025-12-26T09:13:57.055+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-15T00:00:00+00:00 [queued]>
+[2025-12-26T09:13:57.111+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-15T00:00:00+00:00 [queued]>
+[2025-12-26T09:13:57.115+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-26T09:13:57.318+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): rm_task> on 2024-01-15 00:00:00+00:00
+[2025-12-26T09:13:57.348+0000] {standard_task_runner.py:60} INFO - Started process 336 to run task
+[2025-12-26T09:13:57.377+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'fhv_taxi_data', 'rm_task', 'scheduled__2024-01-15T00:00:00+00:00', '--job-id', '252', '--raw', '--subdir', 'DAGS_FOLDER/gcs_upload_dag.py', '--cfg-path', '/tmp/tmp_9c2klpt']
+[2025-12-26T09:13:57.385+0000] {standard_task_runner.py:88} INFO - Job 252: Subtask rm_task
+[2025-12-26T09:13:57.513+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-26T09:13:57.722+0000] {task_command.py:423} INFO - Running <TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-15T00:00:00+00:00 [running]> on host 3abe3b9ee2bb
+[2025-12-26T09:13:58.253+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fhv_taxi_data' AIRFLOW_CTX_TASK_ID='rm_task' AIRFLOW_CTX_EXECUTION_DATE='2024-01-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-15T00:00:00+00:00'
+[2025-12-26T09:13:58.267+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-26T09:13:58.270+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'rm -f /opt/***/fhv_tripdata_2019-01.parquet']
+[2025-12-26T09:13:58.311+0000] {subprocess.py:86} INFO - Output:
+[2025-12-26T09:13:58.323+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-26T09:13:58.447+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=fhv_taxi_data, task_id=rm_task, execution_date=20240115T000000, start_date=20251226T091357, end_date=20251226T091358
+[2025-12-26T09:13:58.570+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-26T09:13:58.677+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

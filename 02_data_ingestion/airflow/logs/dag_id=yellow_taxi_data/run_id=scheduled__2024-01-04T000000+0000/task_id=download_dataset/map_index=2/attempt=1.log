@@ -1,0 +1,17 @@
+[2025-12-26T09:29:57.834+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: yellow_taxi_data.download_dataset scheduled__2024-01-04T00:00:00+00:00 map_index=2 [queued]>
+[2025-12-26T09:29:57.883+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: yellow_taxi_data.download_dataset scheduled__2024-01-04T00:00:00+00:00 map_index=2 [queued]>
+[2025-12-26T09:29:57.887+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-26T09:29:57.954+0000] {taskinstance.py:2191} INFO - Executing <Mapped(BashOperator): download_dataset> on 2024-01-04 00:00:00+00:00
+[2025-12-26T09:29:57.987+0000] {standard_task_runner.py:60} INFO - Started process 626 to run task
+[2025-12-26T09:29:57.997+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'yellow_taxi_data', 'download_dataset', 'scheduled__2024-01-04T00:00:00+00:00', '--job-id', '280', '--raw', '--subdir', 'DAGS_FOLDER/gcs_upload_dag.py', '--cfg-path', '/tmp/tmpt08qha2l', '--map-index', '2']
+[2025-12-26T09:29:58.016+0000] {standard_task_runner.py:88} INFO - Job 280: Subtask download_dataset
+[2025-12-26T09:29:58.104+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-26T09:29:58.461+0000] {task_command.py:423} INFO - Running <TaskInstance: yellow_taxi_data.download_dataset scheduled__2024-01-04T00:00:00+00:00 map_index=2 [running]> on host 3abe3b9ee2bb
+[2025-12-26T09:29:59.074+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='yellow_taxi_data' AIRFLOW_CTX_TASK_ID='download_dataset' AIRFLOW_CTX_EXECUTION_DATE='2024-01-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-04T00:00:00+00:00'
+[2025-12-26T09:29:59.088+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-26T09:29:59.098+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -sS https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet > /opt/***/yellow_tripdata_2021-01.parquet']
+[2025-12-26T09:29:59.135+0000] {subprocess.py:86} INFO - Output:
+[2025-12-26T09:30:04.888+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-26T09:30:05.040+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=yellow_taxi_data, task_id=download_dataset, map_index=2, execution_date=20240104T000000, start_date=20251226T092957, end_date=20251226T093005
+[2025-12-26T09:30:05.162+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-26T09:30:05.383+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

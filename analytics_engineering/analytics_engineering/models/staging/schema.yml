@@ -1,0 +1,165 @@
+version: 2
+
+sources:
+  - name: staging
+    database: nytaxitrips
+    schema: nytaxi_data
+    tables: 
+     - name: yellow_data
+     - name: zone_data
+     - name: fhv_data
+     - name: green_data
+
+models:
+  - name: stg_yellowtrips
+    description: ""
+    columns:
+      - name: tripid
+        data_type: string
+        description: " primary key for my table manually created"
+        tests:
+         - unique:
+             severity: warn
+         - not_null: 
+             severity: warn
+
+      - name: vendorid
+        data_type: int64
+        description: ""
+
+      - name: ratecodeid
+        data_type: int64
+        description: ""
+
+      - name: pickup_locationid
+        data_type: int64
+        description: " shows the taxi pickup location"
+        tests: 
+         - relationships:
+            field: locationid
+            to: ref('stg_zones')
+            severity: warn
+
+      - name: dropoff_locationid
+        data_type: int64
+        description: ""
+        tests: 
+         - relationships:
+            field: locationid
+            to: ref('stg_zones')
+            severity: warn
+
+      - name: pickup_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: dropoff_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: store_and_fwd_flag
+        data_type: string
+        description: ""
+
+      - name: passenger_count
+        data_type: int64
+        description: ""
+
+      - name: trip_distance
+        data_type: numeric
+        description: ""
+
+      - name: fare_amount
+        data_type: numeric
+        description: ""
+
+      - name: extra
+        data_type: numeric
+        description: ""
+
+      - name: mta_tax
+        data_type: numeric
+        description: ""
+
+      - name: tip_amount
+        data_type: numeric
+        description: ""
+
+      - name: tolls_amount
+        data_type: numeric
+        description: ""
+
+      - name: improvement_surcharge
+        data_type: numeric
+        description: ""
+
+      - name: total_amount
+        data_type: numeric
+        description: ""
+
+      - name: congestion_surcharge
+        data_type: numeric
+        description: ""
+
+      - name: payment_type
+        data_type: int64
+        description: " payment types used by user"
+        tests: 
+         - accepted_values:
+            values: "{{ var('payment_types_values')}}"
+            severity: warn 
+            quote: false
+
+      - name: payment_type_desc
+        data_type: string
+        description: ""
+
+  - name: stg_zones
+    description: ""
+    columns:
+      - name: locationid
+        data_type: int64
+        description: ""
+
+      - name: borough
+        data_type: string
+        description: ""
+
+      - name: zone
+        data_type: string
+        description: ""
+
+      - name: service_zone
+        data_type: string
+        description: ""
+
+  - name: stg_fhv
+    description: ""
+    columns:
+      - name: dispatching_base_num
+        data_type: string
+        description: ""
+
+      - name: pickup_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: dropoff_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: pulocationid
+        data_type: float64
+        description: ""
+
+      - name: dolocationid
+        data_type: float64
+        description: ""
+
+      - name: sr_flag
+        data_type: float64
+        description: ""
+
+      - name: affiliated_base_number
+        data_type: string
+        description: ""

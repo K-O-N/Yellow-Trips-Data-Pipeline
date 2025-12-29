@@ -1,0 +1,14 @@
+analytics_project:
+  outputs:
+    dev:
+      dataset: nytaxi_data
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /credentials/google_credentials.json
+      location: EU
+      method: service-account
+      priority: interactive
+      project: nytaxitrips
+      threads: 4
+      type: bigquery
+  target: dev
