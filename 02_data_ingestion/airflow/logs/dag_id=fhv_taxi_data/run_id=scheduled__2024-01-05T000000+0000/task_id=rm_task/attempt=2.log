@@ -1,0 +1,29 @@
+[2025-12-20T15:41:31.807+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2025-12-20T15:41:31.861+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-05T00:00:00+00:00 [queued]>
+[2025-12-20T15:41:31.862+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-12-20T15:41:31.910+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): rm_task> on 2024-01-05 00:00:00+00:00
+[2025-12-20T15:41:31.919+0000] {standard_task_runner.py:60} INFO - Started process 734 to run task
+[2025-12-20T15:41:31.928+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'fhv_taxi_data', 'rm_task', 'scheduled__2024-01-05T00:00:00+00:00', '--job-id', '166', '--raw', '--subdir', 'DAGS_FOLDER/gcs_upload_dag.py', '--cfg-path', '/tmp/tmpyu_stmuw']
+[2025-12-20T15:41:31.930+0000] {standard_task_runner.py:88} INFO - Job 166: Subtask rm_task
+[2025-12-20T15:41:31.961+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-20T15:41:32.095+0000] {task_command.py:423} INFO - Running <TaskInstance: fhv_taxi_data.rm_task scheduled__2024-01-05T00:00:00+00:00 [running]> on host d7ce9969e07d
+[2025-12-20T15:41:32.389+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fhv_taxi_data' AIRFLOW_CTX_TASK_ID='rm_task' AIRFLOW_CTX_EXECUTION_DATE='2024-01-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-05T00:00:00+00:00'
+[2025-12-20T15:41:32.418+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-20T15:41:32.422+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'rm /opt/***/*']
+[2025-12-20T15:41:32.470+0000] {subprocess.py:86} INFO - Output:
+[2025-12-20T15:41:32.480+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/credentials': Is a directory
+[2025-12-20T15:41:32.482+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/dags': Is a directory
+[2025-12-20T15:41:32.484+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/logs': Is a directory
+[2025-12-20T15:41:32.486+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/plugins': Is a directory
+[2025-12-20T15:41:32.489+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-12-20T15:41:32.539+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-12-20T15:41:32.545+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=fhv_taxi_data, task_id=rm_task, execution_date=20240105T000000, start_date=20251220T154131, end_date=20251220T154132
+[2025-12-20T15:41:32.573+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 166 for task rm_task (Bash command failed. The command returned a non-zero exit code 1.; 734)
+[2025-12-20T15:41:32.589+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-12-20T15:41:32.618+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

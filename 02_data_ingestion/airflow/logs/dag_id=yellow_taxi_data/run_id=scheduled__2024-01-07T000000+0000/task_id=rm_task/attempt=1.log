@@ -1,0 +1,17 @@
+[2025-12-26T09:34:59.295+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: yellow_taxi_data.rm_task scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2025-12-26T09:34:59.318+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: yellow_taxi_data.rm_task scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2025-12-26T09:34:59.320+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-12-26T09:34:59.355+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): rm_task> on 2024-01-07 00:00:00+00:00
+[2025-12-26T09:34:59.368+0000] {standard_task_runner.py:60} INFO - Started process 828 to run task
+[2025-12-26T09:34:59.376+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'yellow_taxi_data', 'rm_task', 'scheduled__2024-01-07T00:00:00+00:00', '--job-id', '311', '--raw', '--subdir', 'DAGS_FOLDER/gcs_upload_dag.py', '--cfg-path', '/tmp/tmpe4rsa4kd']
+[2025-12-26T09:34:59.379+0000] {standard_task_runner.py:88} INFO - Job 311: Subtask rm_task
+[2025-12-26T09:34:59.425+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-26T09:34:59.532+0000] {task_command.py:423} INFO - Running <TaskInstance: yellow_taxi_data.rm_task scheduled__2024-01-07T00:00:00+00:00 [running]> on host 3abe3b9ee2bb
+[2025-12-26T09:34:59.753+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='yellow_taxi_data' AIRFLOW_CTX_TASK_ID='rm_task' AIRFLOW_CTX_EXECUTION_DATE='2024-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-07T00:00:00+00:00'
+[2025-12-26T09:34:59.759+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-26T09:34:59.762+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'rm -f /opt/***/yellow_tripdata_2020-01.parquet /opt/***/yellow_tripdata_2021-01.parquet /opt/***/yellow_tripdata_2022-01.parquet']
+[2025-12-26T09:34:59.786+0000] {subprocess.py:86} INFO - Output:
+[2025-12-26T09:34:59.857+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-26T09:34:59.916+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=yellow_taxi_data, task_id=rm_task, execution_date=20240107T000000, start_date=20251226T093459, end_date=20251226T093459
+[2025-12-26T09:34:59.997+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-26T09:35:00.054+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
