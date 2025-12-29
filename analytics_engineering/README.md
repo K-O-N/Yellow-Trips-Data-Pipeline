@@ -140,7 +140,9 @@ Built-in dbt Tests were added to validate assumptions:
 * `not_null`
 * `unique`
 * `accepted_values`
-
+* 
+#### Data Model Lineage
+![](dag.jpeg)
 
 
 
