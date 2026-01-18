@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
       target: dbt-bigquery
     image: dbt/bigquery
+    # Change this to match the folder inside your container where your dbt_project.yml actually lives (project name you intend to use)
     working_dir: /usr/app/analytics_engineering
     volumes:
       - .:/usr/app
